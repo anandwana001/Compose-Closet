@@ -1,3 +1,10 @@
 <resources>
   <string name="app_name">Compose-Catchflicks</string>
+
+  <!-- Bottom Nav Menu -->
+  <string name="popular_movies">Popular</string>
+  <string name="upcoming_movies">Upcoming</string>
+  <string name="now_playing_movies">Now Playing</string>
+  <string name="genre">Genres</string>
+  <string name="search">Search</string>
 </resources>
