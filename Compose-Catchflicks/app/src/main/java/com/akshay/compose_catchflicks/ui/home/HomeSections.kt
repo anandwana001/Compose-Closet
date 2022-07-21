@@ -13,8 +13,8 @@ enum class HomeSections(
     @DrawableRes val icon: Int,
     val route: String
 ) {
-    POPULAR(R.string.popular_movies, R.drawable.popular, "home/popular"),
-    UPCOMING(R.string.upcoming_movies, R.drawable.upcoming, "home/upcoming"),
-    NOWPLAYING(R.string.now_playing_movies, R.drawable.now_playing, "home/now_playing"),
-    SEARCH(R.string.search, R.drawable.ic_baseline_search_24, "home/search")
+    POPULAR(R.string.popular_movies, R.drawable.popular, "popular"),
+    UPCOMING(R.string.upcoming_movies, R.drawable.upcoming, "upcoming"),
+    NOWPLAYING(R.string.now_playing_movies, R.drawable.now_playing, "now_playing"),
+    SEARCH(R.string.search, R.drawable.ic_baseline_search_24, "search")
 }

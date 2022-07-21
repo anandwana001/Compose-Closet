@@ -3,7 +3,6 @@ package com.akshay.compose_catchflicks.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.core.view.WindowCompat
 
 /**
  * Created by anandwana001 on

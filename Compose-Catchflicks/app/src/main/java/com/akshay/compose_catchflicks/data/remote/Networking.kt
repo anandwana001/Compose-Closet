@@ -1,11 +1,11 @@
 package com.akshay.compose_catchflicks.data.remote
 
 import android.content.Context
-import com.akshay.compose_catchflicks.BuildConfig
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 /**
@@ -20,12 +20,14 @@ object Networking {
     fun provideRetrofitInstance(
         apiKey: String,
         baseUrl: String,
-        okHttpClient: OkHttpClient
+        okHttpClient: OkHttpClient,
+        gsonConverter: GsonConverterFactory
     ): NetworkService {
         API_KEY = apiKey
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)
+            .addConverterFactory(gsonConverter)
             .build()
             .create(NetworkService::class.java)
     }
@@ -38,10 +40,9 @@ object Networking {
             .cache(Cache(context.cacheDir, cacheSize))
             .addInterceptor(
                 HttpLoggingInterceptor()
-                .apply {
-                    level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-                    else HttpLoggingInterceptor.Level.NONE
-                })
+                    .apply {
+                        level = HttpLoggingInterceptor.Level.BODY
+                    })
             .readTimeout(NETWORK_CALL_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .writeTimeout(NETWORK_CALL_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .build()

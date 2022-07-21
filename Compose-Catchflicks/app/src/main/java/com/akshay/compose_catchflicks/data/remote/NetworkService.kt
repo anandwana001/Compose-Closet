@@ -17,7 +17,7 @@ interface NetworkService {
     ): GenreResponse
 
     @GET(Endpoints.MOVIES_POPULAR)
-    fun doPopularMoviesCall(
+    suspend fun doPopularMoviesCall(
         @Query("api_key") apiKey: String = Networking.API_KEY,
         @Query("language") language: String?,
         @Query("page") page: Int?

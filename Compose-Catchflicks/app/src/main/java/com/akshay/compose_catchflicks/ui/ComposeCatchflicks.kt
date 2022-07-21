@@ -1,10 +1,10 @@
 package com.akshay.compose_catchflicks.ui
 
-import androidx.compose.material.*
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.navigation.compose.rememberNavController
 import com.akshay.compose_catchflicks.ui.components.ComposeCatchflicksBottomBar
+import com.akshay.compose_catchflicks.ui.components.NavHostContainer
 import com.akshay.compose_catchflicks.ui.home.HomeSections
 import com.akshay.compose_catchflicks.ui.theme.ComposeCatchflicksTheme
 
@@ -15,24 +15,11 @@ import com.akshay.compose_catchflicks.ui.theme.ComposeCatchflicksTheme
 @Composable
 fun ComposeCatchflicks() {
     ComposeCatchflicksTheme {
+        val navController = rememberNavController()
         Scaffold(
-            modifier = Modifier,
-            scaffoldState = rememberScaffoldState(),
-            topBar = {},
-            bottomBar = { ComposeCatchflicksBottomBar(HomeSections.values()) },
-            snackbarHost = {},
-            floatingActionButton = {},
-            floatingActionButtonPosition = FabPosition.End,
-            isFloatingActionButtonDocked = false,
-            drawerContent = {},
-            drawerShape = MaterialTheme.shapes.large,
-            drawerElevation = DrawerDefaults.Elevation,
-            drawerBackgroundColor = Color.Black,
-            drawerContentColor = Color.Black,
-            drawerScrimColor = Color.Black,
-            backgroundColor = Color.Black,
-            contentColor = Color.Black,
-            content = {}
-        )
+            bottomBar = { ComposeCatchflicksBottomBar(HomeSections.values(), navController) },
+        ) {
+            NavHostContainer(navController = navController)
+        }
     }
 }
