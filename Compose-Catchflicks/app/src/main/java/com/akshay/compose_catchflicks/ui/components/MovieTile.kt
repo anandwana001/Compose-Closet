@@ -15,6 +15,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import com.akshay.compose_catchflicks.ui.theme.catchflicksBoldFont
+import com.akshay.compose_catchflicks.ui.theme.catchflicksFont
 
 /**
  * Created by anandwana001 on
@@ -30,7 +32,7 @@ fun MovieTileCard(
     posterThumbnail: String?
 ) {
     Box(
-        modifier = modifier
+        modifier = modifier.padding(start = 16.dp, end = 16.dp)
     ) {
         MovieTileDetail(modifier, movieName, movieDes, movieRating)
         MovieThumbnailCard(modifier, posterThumbnail)
@@ -91,7 +93,8 @@ fun movieTitle(modifier: Modifier, movieName: String) {
             .fillMaxWidth(),
         text = movieName,
         maxLines = 2,
-        style = MaterialTheme.typography.h6
+        style = MaterialTheme.typography.h6,
+        fontFamily = catchflicksBoldFont
     )
 }
 
@@ -104,7 +107,8 @@ fun movieRating(modifier: Modifier, movieRating: Float) {
         text = movieRating.toString(),
         textAlign = TextAlign.End,
         style = MaterialTheme.typography.h6,
-        color = Color(0xFFffbc03)
+        color = Color(0xFFffbc03),
+        fontFamily = catchflicksBoldFont
     )
 }
 
@@ -115,10 +119,11 @@ fun movieDescription(modifier: Modifier, movieDes: String) {
             .fillMaxWidth()
             .padding(end = 8.dp, top = 16.dp, bottom = 24.dp),
         text = movieDes,
-        maxLines = 3,
-        style = MaterialTheme.typography.h6,
+        maxLines = 5,
+        style = MaterialTheme.typography.subtitle2,
         color = Color(0xFFffbc03),
-        overflow = TextOverflow.Ellipsis
+        overflow = TextOverflow.Ellipsis,
+        fontFamily = catchflicksFont
     )
 }
 
