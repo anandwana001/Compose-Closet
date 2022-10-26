@@ -6,7 +6,7 @@
 
 | Demo | Title | Key Takeaways |
 | ---- | --- | --- |
-| <img src="/Screenshots/ComposeStaggeredGrids.gif" width="250" height="450"/> | **[> Compose StaggeredGrids](ComposeStaggeredGrids/)** | <ol><li>LazyVerticalStaggeredGrid</li><li>LazyHorizontalStaggeredGrid</li><li>rememberLazyStaggeredGridState</li><li>StaggeredGridCells</li><li>Fixed/Adaptive</li></ol> |
+| <img src="/Screenshots/ComposeStaggeredGrids.gif" width="220" height="450"/> | **[> Compose StaggeredGrids](ComposeStaggeredGrids/)** | <ol><li>LazyVerticalStaggeredGrid</li><li>LazyHorizontalStaggeredGrid</li><li>rememberLazyStaggeredGridState</li><li>StaggeredGridCells</li><li>Fixed/Adaptive</li></ol> |
 
 
 ## If this repository helps you in anyway, show your love :heart: by putting a :star: on this project :v:
