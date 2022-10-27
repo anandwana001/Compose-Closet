@@ -18,13 +18,12 @@
 Author: Akshay Nandwana
 
 <a href="https://twitter.com/akshay81844">
-  <img alt="Follow me on Twitter"
-       src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/twitter64.png" />
+  <img align="left" alt="Akshay's Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />
 </a>
-<a href="https://www.linkedin.com/in/anandwana001">
-  <img alt="Follow me on LinkedIn"
-       src="https://github.com/gabrielemariotti/cardslib/raw/master/demo/images/linkedin.png" />
+<a href="https://www.linkedin.com/in/anandwana001/">
+  <img align="left" alt="Akshay's Linkdein" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />
 </a>
+<br><br>
 
 ## License
 
