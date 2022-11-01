@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
+import com.akshay.composecatchflicks.ui.component.CatchflicksBottomNavigationBar
 import com.akshay.composecatchflicks.ui.component.CatchflicksTopAppBar
 import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
 
@@ -19,7 +20,8 @@ class MainActivity : ComponentActivity() {
             ComposeCatchflicksTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    topBar = { CatchflicksTopAppBar() }
+                    topBar = { CatchflicksTopAppBar() },
+                    bottomBar = { CatchflicksBottomNavigationBar() }
                 ) { padding ->
                     Box(modifier = Modifier.padding(padding)) {}
                 }

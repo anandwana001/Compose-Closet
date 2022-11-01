@@ -1,3 +1,9 @@
 <resources>
   <string name="app_name">ComposeCatchflicks</string>
+
+  <!-- Bottom Nav Menu -->
+  <string name="movies">Movies</string>
+  <string name="tv">Tv</string>
+  <string name="search">Search</string>
+  <string name="genre">Genre</string>
 </resources>
