@@ -1,4 +1,0 @@
-/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/java/com/akshay/composecatchflicks/ui/theme/Theme.kt
-/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/java/com/akshay/composecatchflicks/ui/theme/Type.kt
-/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/java/com/akshay/composecatchflicks/ui/theme/Color.kt
-/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/java/com/akshay/composecatchflicks/MainActivity.kt
