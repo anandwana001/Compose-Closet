@@ -1,0 +1,130 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.akshay.composecatchflicks"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml
+10
+11    <permission
+11-->[androidx.core:core:1.9.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/8be31cd3a9820df66298364e65654262/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+12        android:name="com.akshay.composecatchflicks.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.9.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/8be31cd3a9820df66298364e65654262/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.9.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/8be31cd3a9820df66298364e65654262/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="com.akshay.composecatchflicks.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.9.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/8be31cd3a9820df66298364e65654262/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.9.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/8be31cd3a9820df66298364e65654262/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+16
+17    <application
+17-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:5:3-30:17
+18        android:allowBackup="true"
+18-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:6:5-31
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.9.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/8be31cd3a9820df66298364e65654262/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+20        android:dataExtractionRules="@xml/data_extraction_rules"
+20-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:7:5-61
+21        android:debuggable="true"
+22        android:fullBackupContent="@xml/backup_rules"
+22-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:8:5-50
+23        android:icon="@mipmap/ic_launcher"
+23-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:9:5-39
+24        android:label="@string/app_name"
+24-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:10:5-37
+25        android:roundIcon="@mipmap/ic_launcher_round"
+25-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:11:5-50
+26        android:supportsRtl="true"
+26-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:12:5-31
+27        android:testOnly="true"
+28        android:theme="@style/Theme.ComposeCatchflicks" >
+28-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:13:5-52
+29        <activity
+29-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:15:5-29:16
+30            android:name="com.akshay.composecatchflicks.MainActivity"
+30-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:18:7-35
+31            android:exported="true"
+31-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:16:7-30
+32            android:label="@string/app_name"
+32-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:17:7-39
+33            android:theme="@style/Theme.ComposeCatchflicks" >
+33-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:19:7-54
+34            <intent-filter>
+34-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:20:7-24:23
+35                <action android:name="android.intent.action.MAIN" />
+35-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:21:9-61
+35-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:21:17-58
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:23:9-69
+37-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:23:19-66
+38            </intent-filter>
+39
+40            <meta-data
+40-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:26:7-28:28
+41                android:name="android.app.lib_name"
+41-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:27:9-44
+42                android:value="" />
+42-->/Users/akshaynandwana/Desktop/Compose-Closet/ComposeCatchflicks/app/src/main/AndroidManifest.xml:28:9-25
+43        </activity>
+44        <activity
+44-->[androidx.compose.ui:ui-tooling:1.3.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/c9e6e9489224b15ceab80bc119cf3a4b/transformed/ui-tooling-1.3.0/AndroidManifest.xml:23:9-25:39
+45            android:name="androidx.compose.ui.tooling.PreviewActivity"
+45-->[androidx.compose.ui:ui-tooling:1.3.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/c9e6e9489224b15ceab80bc119cf3a4b/transformed/ui-tooling-1.3.0/AndroidManifest.xml:24:13-71
+46            android:exported="true" />
+46-->[androidx.compose.ui:ui-tooling:1.3.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/c9e6e9489224b15ceab80bc119cf3a4b/transformed/ui-tooling-1.3.0/AndroidManifest.xml:25:13-36
+47        <activity
+47-->[androidx.compose.ui:ui-test-manifest:1.3.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/35939b8645313b10b94dc602d041b5f1/transformed/ui-test-manifest-1.3.0/AndroidManifest.xml:23:9-25:39
+48            android:name="androidx.activity.ComponentActivity"
+48-->[androidx.compose.ui:ui-test-manifest:1.3.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/35939b8645313b10b94dc602d041b5f1/transformed/ui-test-manifest-1.3.0/AndroidManifest.xml:24:13-63
+49            android:exported="true" />
+49-->[androidx.compose.ui:ui-test-manifest:1.3.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/35939b8645313b10b94dc602d041b5f1/transformed/ui-test-manifest-1.3.0/AndroidManifest.xml:25:13-36
+50
+51        <provider
+51-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:25:9-33:20
+52            android:name="androidx.startup.InitializationProvider"
+52-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:26:13-67
+53            android:authorities="com.akshay.composecatchflicks.androidx-startup"
+53-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:27:13-68
+54            android:exported="false" >
+54-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:28:13-37
+55            <meta-data
+55-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:30:13-32:52
+56                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+56-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:31:17-85
+57                android:value="androidx.startup" />
+57-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:32:17-49
+58        </provider>
+59
+60        <receiver
+60-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:35:9-47:20
+61            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+61-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:36:13-76
+62            android:directBootAware="false"
+62-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:37:13-44
+63            android:enabled="true"
+63-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:38:13-35
+64            android:exported="true"
+64-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:39:13-36
+65            android:permission="android.permission.DUMP" >
+65-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:40:13-57
+66            <intent-filter>
+66-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:41:13-43:29
+67                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+67-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:42:17-91
+67-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:42:25-88
+68            </intent-filter>
+69            <intent-filter>
+69-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:44:13-46:29
+70                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+70-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:45:17-85
+70-->[androidx.profileinstaller:profileinstaller:1.2.0] /Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/63fb3e8716cf19d7580b0da87c6cf4c6/transformed/profileinstaller-1.2.0/AndroidManifest.xml:45:25-82
+71            </intent-filter>
+72        </receiver>
+73    </application>
+74
+75</manifest>

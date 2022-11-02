@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.akshay.composecatchflicks.app-mergeDebugResources-3:/values-sk/values-sk.xml",
+            "map": [
+                {
+                    "source": "/Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/27d4390417eef3b2ec41968f0539c27a/transformed/ui-1.3.0/res/values-sk/values-sk.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,150,234,329,432,524,603,697,787,868,937,1006,1089,1176,1248",
+                        "endColumns": "94,83,94,102,91,78,93,89,80,68,68,82,86,71,67",
+                        "endOffsets": "145,229,324,427,519,598,692,782,863,932,1001,1084,1171,1243,1311"
+                    },
+                    "to": {
+                        "startLines": "2,3,5,6,8,10,11,12,13,14,15,16,17,18,20",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,150,310,405,588,757,836,930,1020,1101,1170,1239,1322,1409,1582",
+                        "endColumns": "94,83,94,102,91,78,93,89,80,68,68,82,86,71,67",
+                        "endOffsets": "145,229,400,503,675,831,925,1015,1096,1165,1234,1317,1404,1476,1645"
+                    }
+                },
+                {
+                    "source": "/Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/ba1147adc4cd84d95f63f6bb9e8f5a0f/transformed/material3-1.0.0/res/values-sk/values-sk.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,131,211",
+                        "endColumns": "75,79,76",
+                        "endOffsets": "126,206,283"
+                    },
+                    "to": {
+                        "startLines": "4,7,9",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "234,508,680",
+                        "endColumns": "75,79,76",
+                        "endOffsets": "305,583,752"
+                    }
+                },
+                {
+                    "source": "/Users/akshaynandwana/Downloads/gradle-4.6/caches/transforms-3/8be31cd3a9820df66298364e65654262/transformed/core-1.9.0/res/values-sk/values-sk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "1481",
+                        "endColumns": "100",
+                        "endOffsets": "1577"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -15,7 +15,7 @@ import com.akshay.composestaggeredgrids.ui.theme.Teal200
  * 26, October, 2022
  **/
 @Composable
-fun SingleCard(modifier: Modifier = Modifier, index: Int) {
+fun SingleCard(modifier: Modifier = Modifier, text: String) {
     Card(
         modifier = modifier.padding(horizontal = 4.dp, vertical = 4.dp),
         shape = RoundedCornerShape(8.dp),
@@ -24,7 +24,7 @@ fun SingleCard(modifier: Modifier = Modifier, index: Int) {
         Text(
             modifier = modifier
                 .padding(top = 8.dp, bottom = 8.dp, start = 8.dp),
-            text = "Item ${index + 1}",
+            text = text,
             color = Teal200
         )
     }
