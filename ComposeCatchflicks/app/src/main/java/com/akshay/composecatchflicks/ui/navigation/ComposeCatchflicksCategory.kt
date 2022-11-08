@@ -9,8 +9,9 @@ import com.akshay.composecatchflicks.R
  **/
 enum class ComposeCatchflicksCategory(
     @StringRes val titleId: Int,
+    val route: String
 ) {
-    MOVIE(R.string.movies),
-    TV(R.string.tv),
-    SEARCH(R.string.search)
+    MOVIE(R.string.movies, "movies"),
+    TV(R.string.tv, "tv"),
+    SEARCH(R.string.search, "search")
 }

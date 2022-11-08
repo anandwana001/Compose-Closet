@@ -4,12 +4,16 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.akshay.composecatchflicks.R
 import com.akshay.composecatchflicks.ui.navigation.ComposeCatchflicksCategory
 import com.akshay.composecatchflicks.ui.theme.CatchflicksFont
@@ -24,20 +28,26 @@ import com.akshay.composecatchflicks.ui.theme.backgroundColor
 @Composable
 fun CatchflicksBottomNavigationBar(
     modifier: Modifier = Modifier,
+    navController: NavHostController,
 ) {
     val list = ComposeCatchflicksCategory.values().asList()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
     CatchflicksBottomBar(
         modifier = modifier,
     ) {
         list.forEach { category ->
             CatchflicksBottomNavigationBarItem(
-                selected = category.titleId == R.string.movies,
+                selected = currentRoute == category.route,
                 label = {
                     Text(
                         fontFamily = CatchflicksFont,
                         text = stringResource(category.titleId)
                     )
-                }
+                },
+                onClick = {
+                    navController.navigate(category.route)
+                },
             )
         }
     }
@@ -61,7 +71,8 @@ fun RowScope.CatchflicksBottomNavigationBarItem(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     label: @Composable (() -> Unit)? = null,
-    alwaysShowLabel: Boolean = true
+    alwaysShowLabel: Boolean = true,
+    onClick: () -> Unit
 ) {
     NavigationBarItem(
         selected = selected,
@@ -81,7 +92,7 @@ fun RowScope.CatchflicksBottomNavigationBarItem(
                 modifier = Modifier.height(20.dp),
             )
         },
-        onClick = {}
+        onClick = onClick
     )
 }
 
@@ -89,6 +100,6 @@ fun RowScope.CatchflicksBottomNavigationBarItem(
 @Composable
 private fun CatchflicksBottomNavigationBarPreview() {
     ComposeCatchflicksTheme {
-        CatchflicksBottomNavigationBar()
+        CatchflicksBottomNavigationBar(navController = rememberNavController())
     }
 }
