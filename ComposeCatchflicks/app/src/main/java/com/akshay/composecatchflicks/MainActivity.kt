@@ -11,7 +11,9 @@ import com.akshay.composecatchflicks.ui.component.CatchflicksBottomNavigationBar
 import com.akshay.composecatchflicks.ui.component.CatchflicksTopAppBar
 import com.akshay.composecatchflicks.ui.navigation.NavHostContainer
 import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
