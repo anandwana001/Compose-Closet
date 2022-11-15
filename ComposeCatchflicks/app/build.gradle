@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization'
 }
 
 android {
@@ -22,10 +23,17 @@ android {
         }
     }
 
+
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "TMDB_API_KEY", "\"" + getTmdbApiKey() + "\"")
+        }
         release {
-            minifyEnabled false
+            minifyEnabled true // to apply the proguard
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "TMDB_API_KEY", "\"" + getTmdbApiKey() + "\"")
         }
     }
     compileOptions {
@@ -46,6 +54,20 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+}
+
+def getTmdbApiKey() {
+    def tmdbApiKey = System.getenv("TMDB_API_KEY")
+    if (tmdbApiKey == null || tmdbApiKey.length() == 0) {
+        def keysFile = file("keys.properties")
+        def keysProperties = new Properties()
+        keysProperties.load(new FileInputStream(keysFile))
+        tmdbApiKey = keysProperties['TMDB_API_KEY']
+        if (tmdbApiKey == null) {
+            logger.error("You need to either place appropriate keys.properties or set proper environment variables for API key")
+        }
+    }
+    return tmdbApiKey
 }
 
 dependencies {
@@ -83,9 +105,14 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
 
+    // Navigation
     implementation 'androidx.navigation:navigation-common-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-compose:2.5.3'
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+
+    // Serialization
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0'
 
     // Unit Testing
     testImplementation 'junit:junit:4.13.2'

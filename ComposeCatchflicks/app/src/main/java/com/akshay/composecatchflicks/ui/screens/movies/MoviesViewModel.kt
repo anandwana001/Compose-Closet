@@ -1,9 +1,13 @@
 package com.akshay.composecatchflicks.ui.screens.movies
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.akshay.composecatchflicks.data.model.Movie
+import com.akshay.composecatchflicks.domain.MoviesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -11,7 +15,18 @@ import javax.inject.Inject
  * 14, November, 2022
  **/
 @HiltViewModel
-class MoviesViewModel @Inject constructor(): ViewModel() {
-    private val _movieStateData = MutableStateFlow<List<String>?>(listOf("a", "a", "a", "a"))
+class MoviesViewModel @Inject constructor(private val moviesRepository: MoviesRepository) : ViewModel() {
+
+    private val _movieStateData = MutableStateFlow<List<Movie>>(emptyList())
     val movieStateData = _movieStateData.asStateFlow()
+
+    init {
+        fetchInitialMovies()
+    }
+
+    private fun fetchInitialMovies() {
+        viewModelScope.launch {
+            _movieStateData.value = moviesRepository.getPopularMovies("en", 1)
+        }
+    }
 }

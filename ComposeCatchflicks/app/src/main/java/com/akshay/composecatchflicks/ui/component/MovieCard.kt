@@ -76,7 +76,7 @@ fun MovieThumbnailCard(modifier: Modifier, posterThumbnail: String?) {
     ) {
         posterThumbnail?.let {
             Image(
-                painter = rememberAsyncImagePainter("https://github.com/anandwana001/catchflicks/blob/master/app/src/main/res/drawable/poster_sample.jpg?raw=true"),
+                painter = rememberAsyncImagePainter("https://image.tmdb.org/t/p/original" + it),
                 contentDescription = "",
                 modifier = modifier.fillMaxHeight(),
                 contentScale = ContentScale.Crop

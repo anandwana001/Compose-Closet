@@ -27,14 +27,14 @@ import com.akshay.composecatchflicks.ui.theme.screenBackgroundColor
 fun MoviesScreen(modifier: Modifier = Modifier, viewModel: MoviesViewModel = hiltViewModel()) {
     val data by viewModel.movieStateData.collectAsStateWithLifecycle()
     LazyColumn(modifier = modifier.background(screenBackgroundColor)) {
-        data?.let {
+        data.let {
             itemsIndexed(it) { index, item ->
                 MovieTileCard(
                     modifier,
-                    "Aladdin",
-                    "A kindhearted street urchin named Aladdin embarks on a magical adventure after finding a lamp that releases a wisecracking genie while a power-hungry Grand Vizier vies for the same lamp that has the power to make their deepest wishes come true.",
-                    9.8F,
-                    "/wKiOkZTN9lUUUNZLmtnwubZYONg.jpg"
+                    item.title,
+                    item.overview,
+                    item.vote_average,
+                    item.poster_path
                 )
                 if (index == it.size - 1) {
                     Spacer(
