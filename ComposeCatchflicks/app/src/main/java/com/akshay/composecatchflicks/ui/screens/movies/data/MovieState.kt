@@ -1,4 +1,4 @@
-package com.akshay.composecatchflicks.ui.screens.movies
+package com.akshay.composecatchflicks.ui.screens.movies.data
 
 import com.akshay.composecatchflicks.data.model.Movie
 

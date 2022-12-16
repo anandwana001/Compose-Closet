@@ -18,6 +18,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.akshay.composecatchflicks.ui.component.MovieTileCard
+import com.akshay.composecatchflicks.ui.screens.movies.viewmodel.MoviesViewModel
 import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
 import com.akshay.composecatchflicks.ui.theme.screenBackgroundColor
 
@@ -33,24 +34,19 @@ fun MoviesScreen(
 ) {
     val data by viewModel.movieStateData.collectAsStateWithLifecycle()
     LazyColumn(modifier = modifier.background(screenBackgroundColor)) {
-        data.let {
-            itemsIndexed(it) { index, item ->
-                MovieTileCard(
-                    modifier.clickable {
-                        navController.navigate("detail")
-                    },
-                    item.title,
-                    item.overview,
-                    item.vote_average,
-                    item.poster_path
+        itemsIndexed(data) { index, item ->
+            MovieTileCard(
+                modifier.clickable {
+                    navController.navigate("detail")
+                },
+                item
+            )
+            if (index == data.size - 1) {
+                Spacer(
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .height(50.dp)
                 )
-                if (index == it.size - 1) {
-                    Spacer(
-                        modifier = modifier
-                            .fillMaxWidth()
-                            .height(50.dp)
-                    )
-                }
             }
         }
     }

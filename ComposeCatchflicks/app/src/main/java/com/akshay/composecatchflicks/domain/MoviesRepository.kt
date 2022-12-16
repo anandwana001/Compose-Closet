@@ -1,7 +1,7 @@
 package com.akshay.composecatchflicks.domain
 
-import com.akshay.composecatchflicks.data.model.Movie
 import com.akshay.composecatchflicks.data.remote.NetworkService
+import com.akshay.composecatchflicks.domain.model.Movie
 import javax.inject.Inject
 
 /**
@@ -11,6 +11,13 @@ import javax.inject.Inject
 class MoviesRepository @Inject constructor(private val networkService: NetworkService) {
 
     suspend fun getPopularMovies(language: String, pageNumber: Int): List<Movie> {
-        return networkService.getPopularMovies(language = language, page = pageNumber).results
+        return networkService.getPopularMovies(language = language, page = pageNumber).results.map {
+            Movie(
+                title = it.title,
+                overview = it.overview,
+                voteAverage = it.vote_average,
+                posterPath = it.poster_path
+            )
+        }
     }
 }

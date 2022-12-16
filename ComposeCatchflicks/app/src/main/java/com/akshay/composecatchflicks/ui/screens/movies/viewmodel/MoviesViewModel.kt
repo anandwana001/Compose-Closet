@@ -1,9 +1,9 @@
-package com.akshay.composecatchflicks.ui.screens.movies
+package com.akshay.composecatchflicks.ui.screens.movies.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.akshay.composecatchflicks.data.model.Movie
 import com.akshay.composecatchflicks.domain.MoviesRepository
+import com.akshay.composecatchflicks.domain.model.Movie
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

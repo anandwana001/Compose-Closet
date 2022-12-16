@@ -3,7 +3,10 @@ package com.akshay.composecatchflicks.ui.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,6 +16,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
+import com.akshay.composecatchflicks.domain.model.Movie
 import com.akshay.composecatchflicks.ui.theme.CatchflicksBoldFont
 import com.akshay.composecatchflicks.ui.theme.CatchflicksFont
 
@@ -23,25 +27,22 @@ import com.akshay.composecatchflicks.ui.theme.CatchflicksFont
 @Composable
 fun MovieTileCard(
     modifier: Modifier,
-    movieName: String,
-    movieDes: String,
-    movieRating: Float,
-    posterThumbnail: String?
+    movie: Movie,
 ) {
     Box(
         modifier = modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp)
     ) {
-        MovieTileDetail(modifier, movieName, movieDes, movieRating)
-        MovieThumbnailCard(modifier, posterThumbnail)
+        MovieTileDetail(modifier, movie.title, movie.overview, movie.voteAverage)
+        MovieThumbnailCard(modifier, movie.posterPath)
     }
 }
 
 @Composable
 fun MovieTileDetail(
     modifier: Modifier,
-    movieName: String,
-    movieDes: String,
-    movieRating: Float,
+    movieName: String?,
+    movieDes: String?,
+    movieRating: Float?,
 ) {
     Card(
         modifier = modifier
@@ -54,7 +55,8 @@ fun MovieTileDetail(
     ) {
         Column(
             modifier = modifier
-                .padding(start = 150.dp)
+                .fillMaxWidth()
+                .padding(start = 150.dp, top = 8.dp)
         ) {
             MovieRating(modifier, movieRating)
             MovieTitle(modifier, movieName)
@@ -86,44 +88,50 @@ fun MovieThumbnailCard(modifier: Modifier, posterThumbnail: String?) {
 }
 
 @Composable
-fun MovieTitle(modifier: Modifier, movieName: String) {
-    Text(
-        modifier = modifier
-            .fillMaxWidth(),
-        text = movieName,
-        maxLines = 2,
-        style = MaterialTheme.typography.titleMedium,
-        fontFamily = CatchflicksBoldFont
-    )
+fun MovieTitle(modifier: Modifier, movieName: String?) {
+    movieName?.let {
+        Text(
+            modifier = modifier
+                .fillMaxWidth(),
+            text = it,
+            maxLines = 2,
+            style = MaterialTheme.typography.titleMedium,
+            fontFamily = CatchflicksBoldFont
+        )
+    }
 }
 
 @Composable
-fun MovieRating(modifier: Modifier, movieRating: Float) {
-    Text(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(end = 8.dp, top = 8.dp),
-        text = movieRating.toString(),
-        textAlign = TextAlign.End,
-        style = MaterialTheme.typography.bodyMedium,
-        color = Color(0xFFffbc03),
-        fontFamily = CatchflicksBoldFont
-    )
+fun MovieRating(modifier: Modifier, movieRating: Float?) {
+    movieRating?.let {
+        Text(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(end = 8.dp),
+            text = it.toString(),
+            textAlign = TextAlign.End,
+            style = MaterialTheme.typography.bodyMedium,
+            color = Color(0xFFffbc03),
+            fontFamily = CatchflicksBoldFont
+        )
+    }
 }
 
 @Composable
-fun MovieDescription(modifier: Modifier, movieDes: String) {
-    Text(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(end = 8.dp, top = 16.dp, bottom = 24.dp),
-        text = movieDes,
-        maxLines = 3,
-        style = MaterialTheme.typography.titleSmall,
-        color = Color(0xFFffbc03),
-        overflow = TextOverflow.Ellipsis,
-        fontFamily = CatchflicksFont
-    )
+fun MovieDescription(modifier: Modifier, movieDes: String?) {
+    movieDes?.let {
+        Text(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(end = 8.dp, top = 16.dp, bottom = 24.dp),
+            text = it,
+            maxLines = 3,
+            style = MaterialTheme.typography.titleSmall,
+            color = Color(0xFFffbc03),
+            overflow = TextOverflow.Ellipsis,
+            fontFamily = CatchflicksFont
+        )
+    }
 }
 
 @Preview(showBackground = true)
@@ -131,9 +139,11 @@ fun MovieDescription(modifier: Modifier, movieDes: String) {
 fun MovieTileCardPreview() {
     MovieTileCard(
         Modifier,
-        "Aladdin",
-        "A kindhearted street urchin named Aladdin embarks on a magical adventure after finding a lamp that releases a wisecracking genie while a power-hungry Grand Vizier vies for the same lamp that has the power to make their deepest wishes come true.",
-        9.8F,
-        "https://github.com/anandwana001/catchflicks/blob/master/app/src/main/res/drawable/poster_sample.jpg?raw=true"
+        Movie(
+            title = "Aladdin",
+            overview = "A kindhearted street urchin named Aladdin embarks on a magical adventure after finding a lamp that releases a wisecracking genie while a power-hungry Grand Vizier vies for the same lamp that has the power to make their deepest wishes come true.",
+            voteAverage = 9.8f,
+            posterPath = "https://github.com/anandwana001/catchflicks/blob/master/app/src/main/res/drawable/poster_sample.jpg?raw=true"
+        )
     )
 }
