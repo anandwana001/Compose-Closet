@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.akshay.composecatchflicks.ui.screens.movies.MovieDetailScreen
 import com.akshay.composecatchflicks.ui.screens.movies.MoviesScreen
 import com.akshay.composecatchflicks.ui.screens.search.SearchScreen
 import com.akshay.composecatchflicks.ui.screens.tv.TvScreen
@@ -26,13 +27,16 @@ fun NavHostContainer(
         modifier = Modifier.padding(paddingValues),
         builder = {
             composable("movies") {
-                MoviesScreen()
+                MoviesScreen(navController = navController)
             }
             composable("tv") {
                 TvScreen()
             }
             composable("search") {
                 SearchScreen()
+            }
+            composable("detail") {
+                MovieDetailScreen()
             }
         })
 }

@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.akshay.composecatchflicks.ui.component.CatchflicksBottomNavigationBar
 import com.akshay.composecatchflicks.ui.component.CatchflicksTopAppBar
@@ -24,7 +26,13 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     topBar = { CatchflicksTopAppBar() },
-                    bottomBar = { CatchflicksBottomNavigationBar(navController = navController) }
+                    bottomBar = {
+                        val navBackStackEntry by navController.currentBackStackEntryAsState()
+                        val currentRoute = navBackStackEntry?.destination?.route
+                        if(currentRoute != "detail") {
+                            CatchflicksBottomNavigationBar(navController = navController)
+                        }
+                    }
                 ) { paddingValues ->
                     NavHostContainer(navController = navController, paddingValues = paddingValues)
                 }

@@ -118,7 +118,7 @@ fun MovieDescription(modifier: Modifier, movieDes: String) {
             .fillMaxWidth()
             .padding(end = 8.dp, top = 16.dp, bottom = 24.dp),
         text = movieDes,
-        maxLines = 5,
+        maxLines = 3,
         style = MaterialTheme.typography.titleSmall,
         color = Color(0xFFffbc03),
         overflow = TextOverflow.Ellipsis,

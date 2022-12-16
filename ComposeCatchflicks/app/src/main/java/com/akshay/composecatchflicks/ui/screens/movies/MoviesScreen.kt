@@ -1,6 +1,7 @@
 package com.akshay.composecatchflicks.ui.screens.movies
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,6 +15,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.akshay.composecatchflicks.ui.component.MovieTileCard
 import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
 import com.akshay.composecatchflicks.ui.theme.screenBackgroundColor
@@ -24,13 +27,18 @@ import com.akshay.composecatchflicks.ui.theme.screenBackgroundColor
  **/
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
-fun MoviesScreen(modifier: Modifier = Modifier, viewModel: MoviesViewModel = hiltViewModel()) {
+fun MoviesScreen(
+    modifier: Modifier = Modifier, viewModel: MoviesViewModel = hiltViewModel(),
+    navController: NavHostController
+) {
     val data by viewModel.movieStateData.collectAsStateWithLifecycle()
     LazyColumn(modifier = modifier.background(screenBackgroundColor)) {
         data.let {
             itemsIndexed(it) { index, item ->
                 MovieTileCard(
-                    modifier,
+                    modifier.clickable {
+                        navController.navigate("detail")
+                    },
                     item.title,
                     item.overview,
                     item.vote_average,
@@ -52,6 +60,6 @@ fun MoviesScreen(modifier: Modifier = Modifier, viewModel: MoviesViewModel = hil
 @Composable
 fun MoviesScreenPreview() {
     ComposeCatchflicksTheme() {
-        MoviesScreen()
+        MoviesScreen(navController = rememberNavController())
     }
 }
