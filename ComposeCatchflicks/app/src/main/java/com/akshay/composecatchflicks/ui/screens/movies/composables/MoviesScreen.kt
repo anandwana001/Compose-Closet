@@ -12,12 +12,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.os.bundleOf
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.akshay.composecatchflicks.ui.component.MovieTileCard
+import com.akshay.composecatchflicks.ui.navigation.ComposeCatchflicksCategory
 import com.akshay.composecatchflicks.ui.screens.movies.viewmodel.MoviesViewModel
 import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
 import com.akshay.composecatchflicks.ui.theme.screenBackgroundColor
@@ -37,7 +40,9 @@ fun MoviesScreen(
         itemsIndexed(data) { index, item ->
             MovieTileCard(
                 modifier.clickable {
-                    navController.navigate("detail")
+                    navController.navigate("detail/${item.id}") {
+                        popUpTo("movies")
+                    }
                 },
                 item
             )

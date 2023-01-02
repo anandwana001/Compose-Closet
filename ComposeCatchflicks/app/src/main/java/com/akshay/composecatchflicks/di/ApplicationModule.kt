@@ -15,6 +15,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
+private val json = Json { ignoreUnknownKeys = true }
+
 /**
  * Created by anandwana001 on
  * 15, November, 2022
@@ -47,7 +49,7 @@ class ApplicationModule {
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
 
     @Provides

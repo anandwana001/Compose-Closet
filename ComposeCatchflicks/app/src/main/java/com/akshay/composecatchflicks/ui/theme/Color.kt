@@ -18,3 +18,5 @@ val Teal700 = Color(0xFFCA9F29)
 val backgroundColor = Color(0XFF595a5c)
 val screenBackgroundColor = Color(0XFFD3D3D3)
 val UnSelectedTextItemColor = Color(0X88FFFFFF)
+
+val bottomShadow = Color(0XFF666666)

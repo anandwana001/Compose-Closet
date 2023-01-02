@@ -11,4 +11,5 @@ object Endpoints {
     const val MOVIES_NOW_PLAYING = "movie/now_playing"
     const val MOVIES_UPCOMING = "movie/upcoming"
     const val MOVIES_SEARCH = "search/movie"
+    const val MOVIE_DETAILS = "movie/{movie_id}"
 }

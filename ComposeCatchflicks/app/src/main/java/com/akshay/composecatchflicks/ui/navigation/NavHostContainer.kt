@@ -5,9 +5,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.akshay.composecatchflicks.ui.screens.movies.MovieDetailScreen
+import androidx.navigation.navArgument
+import com.akshay.composecatchflicks.ui.screens.moviedetail.compose.MovieDetailScreen
 import com.akshay.composecatchflicks.ui.screens.movies.MoviesScreen
 import com.akshay.composecatchflicks.ui.screens.search.SearchScreen
 import com.akshay.composecatchflicks.ui.screens.tv.TvScreen
@@ -35,7 +37,8 @@ fun NavHostContainer(
             composable("search") {
                 SearchScreen()
             }
-            composable("detail") {
+            composable("detail/{movieId}",
+                arguments = listOf(navArgument("movieId") { type = NavType.IntType })) {
                 MovieDetailScreen()
             }
         })

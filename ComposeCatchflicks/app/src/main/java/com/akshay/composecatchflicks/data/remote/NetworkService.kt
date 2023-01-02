@@ -3,6 +3,7 @@ package com.akshay.composecatchflicks.data.remote
 import com.akshay.composecatchflicks.BuildConfig
 import com.akshay.composecatchflicks.data.remote.response.*
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -45,4 +46,10 @@ interface NetworkService {
         @Query("query") query: String,
         @Query("page") page: Int?
     ): SearchMoviesResponse
+
+    @GET(Endpoints.MOVIE_DETAILS)
+    suspend fun getMovieDetails(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
+    ): MovieDetailResponse
 }
