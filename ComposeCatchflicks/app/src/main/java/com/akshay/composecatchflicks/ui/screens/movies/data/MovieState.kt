@@ -9,5 +9,5 @@ import com.akshay.composecatchflicks.domain.model.Movie
  **/
 data class MovieState(
     val currentPage: Int = 1,
-    val listOfMovies: List<Movie> = emptyList()
+    val listOfMovies: ArrayList<Movie> = arrayListOf()
 )

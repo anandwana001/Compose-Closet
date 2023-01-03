@@ -6,10 +6,7 @@ import com.akshay.composecatchflicks.domain.MoviesRepository
 import com.akshay.composecatchflicks.ui.screens.movies.data.MovieEvent
 import com.akshay.composecatchflicks.ui.screens.movies.data.MovieState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -38,18 +35,23 @@ class MoviesViewModel @Inject constructor(private val moviesRepository: MoviesRe
                     currentPage = event.currentPage + 1
                 )
             }
-            else -> Unit
         }
     }
 
-    fun fetchMovies() {
+    fun fetchMovies(pageNumber: Int = 1) {
         viewModelScope.launch {
-            _movieStateData.value = _movieStateData.value.copy(
-                listOfMovies = moviesRepository.getPopularMovies(
-                    "en",
-                    movieStateData.value.currentPage
+            _movieStateData.update {
+                it.copy(
+                    currentPage = pageNumber,
+                    listOfMovies = moviesRepository.getPopularMovies(
+                        "en",
+                        pageNumber
+                    ).let {
+                        movieStateData.value.listOfMovies.addAll(it)
+                        movieStateData.value.listOfMovies
+                    }
                 )
-            )
+            }
         }
     }
 }

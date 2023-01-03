@@ -31,7 +31,7 @@ fun MoviesScreen(
     modifier: Modifier = Modifier, viewModel: MoviesViewModel,
     navController: NavHostController,
 ) {
-    val data = viewModel.movieStateData.collectAsStateWithLifecycle().value
+    val data by viewModel.movieStateData.collectAsState()
     LazyColumn(modifier = modifier.background(screenBackgroundColor)) {
         itemsIndexed(data.listOfMovies) { index, item ->
             MovieTileCard(
@@ -42,13 +42,8 @@ fun MoviesScreen(
                 },
                 item
             )
-            if (index == data.listOfMovies.size - 1) {
-                Spacer(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .height(50.dp)
-                )
-                //viewModel.onEvent(MovieEvent.IncrementPageNumber(data.currentPage + 1))
+            if (index == data.listOfMovies.lastIndex) {
+                viewModel.fetchMovies(data.currentPage + 1)
             }
         }
     }
