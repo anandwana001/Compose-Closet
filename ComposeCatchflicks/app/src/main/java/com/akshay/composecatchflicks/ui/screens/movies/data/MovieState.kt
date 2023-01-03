@@ -1,6 +1,7 @@
 package com.akshay.composecatchflicks.ui.screens.movies.data
 
-import com.akshay.composecatchflicks.data.model.Movie
+import com.akshay.composecatchflicks.domain.model.Movie
+
 
 /**
  * Created by anandwana001 on

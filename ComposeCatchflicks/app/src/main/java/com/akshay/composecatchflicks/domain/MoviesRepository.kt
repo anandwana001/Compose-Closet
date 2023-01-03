@@ -1,7 +1,9 @@
 package com.akshay.composecatchflicks.domain
 
 import com.akshay.composecatchflicks.data.remote.NetworkService
+import com.akshay.composecatchflicks.domain.model.Genres
 import com.akshay.composecatchflicks.domain.model.Movie
+import com.akshay.composecatchflicks.domain.model.MovieDetail
 import javax.inject.Inject
 
 /**
@@ -23,15 +25,18 @@ class MoviesRepository @Inject constructor(private val networkService: NetworkSe
         }
     }
 
-    suspend fun getMovieDetails(movieId: Int): Movie {
+    suspend fun getMovieDetails(movieId: Int): MovieDetail {
         val data = networkService.getMovieDetails(movieId = movieId)
-        return Movie(
+        return MovieDetail(
             id = data.id,
             title = data.title,
             overview = data.overview,
             voteAverage = data.vote_average,
             posterPath = data.poster_path,
-            backdropPath = data.backdrop_path
+            backdropPath = data.backdrop_path,
+            genres = data.genres.map {
+                Genres(it.id, it.name)
+            }
         )
     }
 }

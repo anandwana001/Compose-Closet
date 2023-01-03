@@ -17,6 +17,12 @@ Coming Soon
 ## Development Setup ⚙️
 Coming Soon
 
+## Learning
+1. Creating UI using Jetpack Compose
+2. Navigating between compose screens
+3. How does NavController works
+4. Use of HiltViewModel in Compose screens
+
 ## If this repository helps you in anyway, show your love :heart: by putting a :star: on this project :v:
 
 ## Credits

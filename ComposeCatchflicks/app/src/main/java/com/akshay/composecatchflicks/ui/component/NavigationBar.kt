@@ -29,8 +29,8 @@ import com.akshay.composecatchflicks.ui.theme.backgroundColor
 fun CatchflicksBottomNavigationBar(
     modifier: Modifier = Modifier,
     navController: NavHostController,
+    list: List<ComposeCatchflicksCategory>,
 ) {
-    val list = ComposeCatchflicksCategory.values().asList()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
     CatchflicksBottomBar(
@@ -100,6 +100,9 @@ fun RowScope.CatchflicksBottomNavigationBarItem(
 @Composable
 private fun CatchflicksBottomNavigationBarPreview() {
     ComposeCatchflicksTheme {
-        CatchflicksBottomNavigationBar(navController = rememberNavController())
+        CatchflicksBottomNavigationBar(
+            navController = rememberNavController(),
+            list = ComposeCatchflicksCategory.values().asList()
+        )
     }
 }

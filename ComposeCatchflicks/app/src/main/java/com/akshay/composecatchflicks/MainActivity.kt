@@ -11,6 +11,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.akshay.composecatchflicks.ui.component.CatchflicksBottomNavigationBar
 import com.akshay.composecatchflicks.ui.component.CatchflicksTopAppBar
+import com.akshay.composecatchflicks.ui.navigation.ComposeCatchflicksCategory
 import com.akshay.composecatchflicks.ui.navigation.NavHostContainer
 import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +31,8 @@ class MainActivity : ComponentActivity() {
                         val navBackStackEntry by navController.currentBackStackEntryAsState()
                         val currentRoute = navBackStackEntry?.destination?.route
                         if(currentRoute != "detail") {
-                            CatchflicksBottomNavigationBar(navController = navController)
+                            CatchflicksBottomNavigationBar(navController = navController,
+                            list = ComposeCatchflicksCategory.values().asList())
                         }
                     }
                 ) { paddingValues ->
@@ -40,3 +42,16 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+/**
+ * TODO
+ * 1. Load more pages on home screen
+ * 2. Smooth scroll
+ * 3. Movie Detail Screen UI
+ * 4. Back button on detail screen
+ * 5. Hide bottom bar on detail screen
+ * 6. Horizontal multiple list in TV tab
+ * 7. Search
+ * 8. UI Test
+ * 9. Unit Test
+ */

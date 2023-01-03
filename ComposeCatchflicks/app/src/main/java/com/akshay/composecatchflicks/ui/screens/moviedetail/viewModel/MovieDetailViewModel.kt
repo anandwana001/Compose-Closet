@@ -4,7 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akshay.composecatchflicks.domain.MoviesRepository
-import com.akshay.composecatchflicks.domain.model.Movie
+import com.akshay.composecatchflicks.domain.model.MovieDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -21,7 +21,7 @@ class MovieDetailViewModel @Inject constructor(
     private val moviesRepository: MoviesRepository
 ) : ViewModel() {
 
-    private val _movieStateData = MutableStateFlow<Movie>(Movie())
+    private val _movieStateData = MutableStateFlow(MovieDetail())
     val movieStateData = _movieStateData.asStateFlow()
 
     private val movieId: Int = checkNotNull(savedStateHandle["movieId"])

@@ -1,5 +1,6 @@
 package com.akshay.composecatchflicks.data.remote.response
 
+import com.akshay.composecatchflicks.data.model.Genres
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -19,6 +20,7 @@ data class MovieDetailResponse(
     @SerialName("original_language") val original_language: String,
     @SerialName("original_title") val original_title: String,
     @SerialName("title") val title: String,
+    @SerialName("genres") val genres: List<Genres>,
     @SerialName("vote_average") val vote_average: Float,
     @SerialName("overview") val overview: String,
     @SerialName("release_date") val release_date: String

@@ -4,13 +4,16 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.akshay.composecatchflicks.ui.screens.moviedetail.compose.MovieDetailScreen
-import com.akshay.composecatchflicks.ui.screens.movies.MoviesScreen
+import com.akshay.composecatchflicks.ui.screens.moviedetail.viewModel.MovieDetailViewModel
+import com.akshay.composecatchflicks.ui.screens.movies.composables.MoviesScreen
+import com.akshay.composecatchflicks.ui.screens.movies.viewmodel.MoviesViewModel
 import com.akshay.composecatchflicks.ui.screens.search.SearchScreen
 import com.akshay.composecatchflicks.ui.screens.tv.TvScreen
 
@@ -29,7 +32,11 @@ fun NavHostContainer(
         modifier = Modifier.padding(paddingValues),
         builder = {
             composable("movies") {
-                MoviesScreen(navController = navController)
+                val viewModel = hiltViewModel<MoviesViewModel>()
+                MoviesScreen(
+                    navController = navController,
+                    viewModel = viewModel
+                )
             }
             composable("tv") {
                 TvScreen()
@@ -38,8 +45,10 @@ fun NavHostContainer(
                 SearchScreen()
             }
             composable("detail/{movieId}",
-                arguments = listOf(navArgument("movieId") { type = NavType.IntType })) {
-                MovieDetailScreen()
+                arguments = listOf(navArgument("movieId") { type = NavType.IntType })
+            ) {
+                val viewModel = hiltViewModel<MovieDetailViewModel>()
+                MovieDetailScreen(movieDetailViewModel = viewModel)
             }
         })
 }
