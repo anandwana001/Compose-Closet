@@ -3,21 +3,17 @@ package com.akshay.composecollapseheader
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
 import com.akshay.composecollapseheader.ui.theme.ComposeCollapseHeaderTheme
@@ -37,6 +33,7 @@ class MainActivity : ComponentActivity() {
                             1f,
                             1 - (scrollState.firstVisibleItemScrollOffset / 600f + scrollState.firstVisibleItemIndex)
                         )
+                        println("firstVisibleItemScrollOffset = ${scrollState.firstVisibleItemScrollOffset} \n firstVisibleItemIndex = ${scrollState.firstVisibleItemIndex}")
                         Column(
                             modifier = Modifier
                                 .padding(it)
@@ -51,10 +48,17 @@ class MainActivity : ComponentActivity() {
                                 modifier = Modifier
                                     .height(toolbarHeight)
                                     .fillMaxWidth()
-                                    .background(Brush.horizontalGradient(listOf(Color.Black, Color(0XFFe74c3c))))
+                                    .background(
+                                        Brush.horizontalGradient(
+                                            listOf(
+                                                Color.Black,
+                                                Color(0XFFe74c3c)
+                                            )
+                                        )
+                                    )
                                     .align(Alignment.CenterHorizontally),
                             ) {
-                                if(toolbarHeight > 24.dp) {
+                                if (toolbarHeight > 24.dp) {
                                     Button(onClick = { /*TODO*/ }) {
                                         Text(text = "This button should go away on scroll")
                                     }
@@ -86,18 +90,5 @@ class MainActivity : ComponentActivity() {
                 )
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ComposeCollapseHeaderTheme {
-        Greeting("Android")
     }
 }
