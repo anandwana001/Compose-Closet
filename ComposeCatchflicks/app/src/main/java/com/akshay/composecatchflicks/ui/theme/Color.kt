@@ -10,13 +10,9 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
-val Purple200 = Color(0xFF303133)
-val Purple700 = Color(0xFF07080C)
-val Teal200 = Color(0xFFFFBB00)
-val Teal700 = Color(0xFFCA9F29)
-
 val backgroundColor = Color(0XFF595a5c)
 val screenBackgroundColor = Color(0XFFD3D3D3)
 val UnSelectedTextItemColor = Color(0X88FFFFFF)
+val textColor = Color(0xFFffbc03)
 
 val bottomShadow = Color(0XFF666666)

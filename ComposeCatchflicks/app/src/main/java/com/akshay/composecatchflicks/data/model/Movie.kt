@@ -9,19 +9,18 @@ import kotlinx.serialization.Serializable
  **/
 @Serializable
 data class Movie(
-    @SerialName("popularity") val popularity: Float,
-    @SerialName("vote_count") val vote_count: Int,
-    @SerialName("video") val video: Boolean,
-    @SerialName("poster_path") val poster_path: String?,
-    @SerialName("id") val id: Int,
-    @SerialName("adult") val adult: Boolean,
-    @SerialName("backdrop_path") val backdrop_path: String?,
-    @SerialName("original_language") val original_language: String,
-    @SerialName("original_title") val original_title: String,
-    @SerialName("genre_ids") val genre_ids: List<Int>,
-    @SerialName("title") val title: String,
-    @SerialName("vote_average") val vote_average: Float,
-    @SerialName("overview") val overview: String,
-    @SerialName("release_date") val release_date: String
-
+    @SerialName("popularity") val popularity: Float? = null,
+    @SerialName("vote_count") val vote_count: Int? = null,
+    @SerialName("video") val video: Boolean? = null,
+    @SerialName("poster_path") val poster_path: String? = null,
+    @SerialName("id") val id: Int? = null,
+    @SerialName("adult") val adult: Boolean? = null,
+    @SerialName("backdrop_path") val backdrop_path: String? = null,
+    @SerialName("original_language") val original_language: String? = null,
+    @SerialName("original_title") val original_title: String? = null,
+    @SerialName("genre_ids") val genre_ids: List<Int>? = null,
+    @SerialName("title") val title: String? = null,
+    @SerialName("vote_average") val vote_average: Float? = null,
+    @SerialName("overview") val overview: String? = null,
+    @SerialName("release_date") val release_date: String? = null
 )

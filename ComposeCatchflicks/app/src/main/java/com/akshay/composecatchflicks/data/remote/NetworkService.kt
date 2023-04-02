@@ -13,7 +13,7 @@ import retrofit2.http.Query
 interface NetworkService {
 
     @GET(Endpoints.GENRE)
-    fun getGenres(
+    suspend fun getGenres(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?
     ): GenreResponse
@@ -26,21 +26,21 @@ interface NetworkService {
     ): PopularMoviesResponse
 
     @GET(Endpoints.MOVIES_NOW_PLAYING)
-    fun getNowPlayingMovies(
+    suspend fun getNowPlayingMovies(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?,
         @Query("page") page: Int?
     ): NowPlayingMoviesResponse
 
     @GET(Endpoints.MOVIES_UPCOMING)
-    fun getUpcomingMovies(
+    suspend fun getUpcomingMovies(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?,
         @Query("page") page: Int?
     ): UpcomingMoviesResponse
 
     @GET(Endpoints.MOVIES_SEARCH)
-    fun searchMovies(
+    suspend fun searchMovies(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?,
         @Query("query") query: String,

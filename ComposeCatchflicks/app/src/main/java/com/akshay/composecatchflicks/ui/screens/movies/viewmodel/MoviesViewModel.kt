@@ -3,10 +3,11 @@ package com.akshay.composecatchflicks.ui.screens.movies.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akshay.composecatchflicks.domain.MoviesRepository
-import com.akshay.composecatchflicks.ui.screens.movies.data.MovieEvent
 import com.akshay.composecatchflicks.ui.screens.movies.data.MovieState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -15,40 +16,29 @@ import javax.inject.Inject
  * 14, November, 2022
  **/
 @HiltViewModel
-class MoviesViewModel @Inject constructor(private val moviesRepository: MoviesRepository) :
-    ViewModel() {
+class MoviesViewModel @Inject constructor(
+    private val moviesRepository: MoviesRepository
+) : ViewModel() {
 
-    private val _movieStateData = MutableStateFlow<MovieState>(MovieState())
+    private val _movieStateData = MutableStateFlow(MovieState())
     val movieStateData = _movieStateData.asStateFlow()
-
-    private val _movieEventData = MutableSharedFlow<MovieEvent>()
-    val movieEventData = _movieEventData.asSharedFlow()
 
     init {
         fetchMovies()
     }
 
-    fun onEvent(event: MovieEvent) {
-        when (event) {
-            is MovieEvent.IncrementPageNumber -> {
-                _movieStateData.value = _movieStateData.value.copy(
-                    currentPage = event.currentPage + 1
-                )
-            }
-        }
-    }
-
-    fun fetchMovies(pageNumber: Int = 1) {
+    private fun fetchMovies() {
         viewModelScope.launch {
             _movieStateData.update {
                 it.copy(
-                    currentPage = pageNumber,
                     listOfMovies = moviesRepository.getPopularMovies(
                         "en",
-                        pageNumber
-                    ).let {
-                        movieStateData.value.listOfMovies.addAll(it)
+                        1
+                    ).takeIf { it.isNotEmpty() }?.apply {
+                        movieStateData.value.listOfMovies.toMutableList().addAll(this)
                         movieStateData.value.listOfMovies
+                    } ?: run {
+                        it.listOfMovies
                     }
                 )
             }

@@ -1,39 +1,35 @@
 package com.akshay.composecatchflicks.ui.theme
 
 import androidx.compose.material3.Typography
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 import com.akshay.composecatchflicks.R
 
-// Set of Material typography styles to start with
-val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+private val defaultTypography = Typography()
+val customTypography = Typography(
+    headlineLarge = defaultTypography.headlineLarge.copy(
+        fontFamily = FontFamily(Font(R.font.itc_avant_grade_std_bold)),
+        fontWeight = FontWeight.Bold
     ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
-    )
-    */
+    headlineMedium = defaultTypography.headlineMedium.copy(
+        fontFamily = FontFamily(Font(R.font.itc_avant_grade_std_bold)),
+        fontWeight = FontWeight.Bold
+    ),
+    headlineSmall = defaultTypography.headlineSmall.copy(
+        fontFamily = FontFamily(Font(R.font.itc_avant_grade_std_bold)),
+        fontWeight = FontWeight.Bold
+    ),
+    bodyLarge = defaultTypography.bodyLarge.copy(
+        fontFamily = FontFamily(Font(R.font.itc_avant_grade_std_bk)),
+        fontWeight = FontWeight.Normal
+    ),
+    bodyMedium = defaultTypography.bodyMedium.copy(
+        fontFamily = FontFamily(Font(R.font.itc_avant_grade_std_bk)),
+        fontWeight = FontWeight.Normal
+    ),
+    bodySmall = defaultTypography.bodySmall.copy(
+        fontFamily = FontFamily(Font(R.font.itc_avant_grade_std_bk)),
+        fontWeight = FontWeight.Normal
+    ),
 )
-
-val CatchflicksFont = FontFamily(Font(R.font.itc_avant_grade_std_bk))
-val CatchflicksBoldFont = FontFamily(Font(R.font.itc_avant_grade_std_bold))

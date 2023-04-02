@@ -62,7 +62,7 @@ fun ComposeCatchflicksTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = customTypography,
         content = content
     )
 }

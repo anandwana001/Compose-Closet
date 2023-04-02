@@ -13,7 +13,10 @@ import javax.inject.Inject
 class MoviesRepository @Inject constructor(private val networkService: NetworkService) {
 
     suspend fun getPopularMovies(language: String, pageNumber: Int): List<Movie> {
-        return networkService.getPopularMovies(language = language, page = pageNumber).results.map {
+        return networkService.getPopularMovies(
+            language = language,
+            page = pageNumber
+        ).results?.map {
             Movie(
                 id = it.id,
                 title = it.title,
@@ -22,6 +25,8 @@ class MoviesRepository @Inject constructor(private val networkService: NetworkSe
                 posterPath = it.poster_path,
                 backdropPath = it.backdrop_path
             )
+        } ?: run {
+            emptyList()
         }
     }
 
@@ -34,8 +39,12 @@ class MoviesRepository @Inject constructor(private val networkService: NetworkSe
             voteAverage = data.vote_average,
             posterPath = data.poster_path,
             backdropPath = data.backdrop_path,
-            genres = data.genres.map {
+            genres = data.genres?.filter {
+                it.name != null && it.id != null
+            }?.map {
                 Genres(it.id, it.name)
+            } ?: run {
+                emptyList()
             }
         )
     }

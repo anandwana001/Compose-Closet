@@ -8,6 +8,5 @@ import com.akshay.composecatchflicks.domain.model.Movie
  * 15, November, 2022
  **/
 data class MovieState(
-    val currentPage: Int = 1,
-    val listOfMovies: ArrayList<Movie> = arrayListOf()
+    val listOfMovies: List<Movie> = emptyList(),
 )

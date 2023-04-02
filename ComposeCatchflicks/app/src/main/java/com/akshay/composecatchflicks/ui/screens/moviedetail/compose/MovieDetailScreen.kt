@@ -13,7 +13,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.rememberAsyncImagePainter
 import com.akshay.composecatchflicks.ui.screens.moviedetail.viewModel.MovieDetailViewModel
@@ -23,7 +22,6 @@ import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
  * Created by anandwana001 on
  * 15, December, 2022
  **/
-@OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
 fun MovieDetailScreen(
     modifier: Modifier = Modifier,
@@ -61,14 +59,18 @@ fun MovieDetailScreen(
             modifier = modifier.padding(16.dp),
             text = "Genres"
         )
-        LazyRow(content = {
-            items(detail.genres.size) { index ->
-                Text(
-                    modifier = modifier.padding(16.dp),
-                    text = detail.genres[index].name
-                )
-            }
-        })
+        detail.genres.takeIf { it.isNotEmpty() }?.apply {
+            LazyRow(content = {
+                items(size) { index ->
+                    get(index).name?.let {
+                        Text(
+                            modifier = modifier.padding(16.dp),
+                            text = it
+                        )
+                    }
+                }
+            })
+        }
         Spacer(modifier = modifier.height(50.dp))
     }
 }

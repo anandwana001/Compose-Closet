@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -35,7 +36,7 @@ fun NavHostContainer(
                 val viewModel = hiltViewModel<MoviesViewModel>()
                 MoviesScreen(
                     navController = navController,
-                    viewModel = viewModel
+                    data = viewModel.movieStateData.collectAsStateWithLifecycle().value
                 )
             }
             composable("tv") {
@@ -44,7 +45,8 @@ fun NavHostContainer(
             composable("search") {
                 SearchScreen()
             }
-            composable("detail/{movieId}",
+            composable(
+                "detail/{movieId}",
                 arguments = listOf(navArgument("movieId") { type = NavType.IntType })
             ) {
                 val viewModel = hiltViewModel<MovieDetailViewModel>()

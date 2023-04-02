@@ -16,7 +16,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.akshay.composecatchflicks.R
 import com.akshay.composecatchflicks.ui.navigation.ComposeCatchflicksCategory
-import com.akshay.composecatchflicks.ui.theme.CatchflicksFont
 import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
 import com.akshay.composecatchflicks.ui.theme.UnSelectedTextItemColor
 import com.akshay.composecatchflicks.ui.theme.backgroundColor
@@ -41,7 +40,7 @@ fun CatchflicksBottomNavigationBar(
                 selected = currentRoute == category.route,
                 label = {
                     Text(
-                        fontFamily = CatchflicksFont,
+                        style = MaterialTheme.typography.bodySmall,
                         text = stringResource(category.titleId)
                     )
                 },

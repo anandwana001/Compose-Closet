@@ -15,10 +15,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.akshay.composecatchflicks.domain.model.Movie
-import com.akshay.composecatchflicks.ui.theme.CatchflicksBoldFont
-import com.akshay.composecatchflicks.ui.theme.CatchflicksFont
+import com.akshay.composecatchflicks.ui.theme.textColor
 
 /**
  * Created by anandwana001 on
@@ -30,7 +30,7 @@ fun MovieTileCard(
     movie: Movie,
 ) {
     Box(
-        modifier = modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp)
+        modifier = modifier.padding(horizontal = 16.dp)
     ) {
         MovieTileDetail(modifier, movie.title, movie.overview, movie.voteAverage)
         MovieThumbnailCard(modifier, movie.posterPath)
@@ -56,7 +56,7 @@ fun MovieTileDetail(
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(start = 150.dp, top = 8.dp)
+                .padding(start = 140.dp)
         ) {
             MovieRating(modifier, movieRating)
             MovieTitle(modifier, movieName)
@@ -92,11 +92,13 @@ fun MovieTitle(modifier: Modifier, movieName: String?) {
     movieName?.let {
         Text(
             modifier = modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp),
             text = it,
             maxLines = 2,
-            style = MaterialTheme.typography.titleMedium,
-            fontFamily = CatchflicksBoldFont
+            fontSize = 16.sp,
+            lineHeight = 22.sp,
+            style = MaterialTheme.typography.headlineLarge
         )
     }
 }
@@ -107,12 +109,13 @@ fun MovieRating(modifier: Modifier, movieRating: Float?) {
         Text(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(end = 8.dp),
+                .padding(end = 8.dp, top = 8.dp),
             text = it.toString(),
             textAlign = TextAlign.End,
-            style = MaterialTheme.typography.bodyMedium,
-            color = Color(0xFFffbc03),
-            fontFamily = CatchflicksBoldFont
+            fontSize = 14.sp,
+            maxLines = 1,
+            style = MaterialTheme.typography.headlineSmall,
+            color = textColor,
         )
     }
 }
@@ -123,13 +126,13 @@ fun MovieDescription(modifier: Modifier, movieDes: String?) {
         Text(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(end = 8.dp, top = 16.dp, bottom = 24.dp),
+                .padding(start = 8.dp, end = 8.dp, top = 16.dp, bottom = 24.dp),
             text = it,
             maxLines = 3,
-            style = MaterialTheme.typography.titleSmall,
-            color = Color(0xFFffbc03),
+            style = MaterialTheme.typography.bodyLarge,
+            color = textColor,
             overflow = TextOverflow.Ellipsis,
-            fontFamily = CatchflicksFont
+            fontSize = 14.sp,
         )
     }
 }
