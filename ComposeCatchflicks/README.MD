@@ -6,7 +6,10 @@
 This is a Compose version of my earlier [Catchflicks](https://github.com/anandwana001/catchflicks) project. This will be my new Kitchen Sink Project for learning new android concepts.
 
 ## Screenshot 📱
-Coming Soon
+<p>
+<img src="/Screenshots/ComposeCatchflicksHome.png" width="220" height="450"/> 
+<img src="/Screenshots/ComposeCatchflicksHome2.png" width="220" height="450"/> 
+</p>
 
 ## Architecture
 Coming Soon
