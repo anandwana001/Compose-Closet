@@ -26,7 +26,7 @@ val customTypography = Typography(
     ),
     bodyMedium = defaultTypography.bodyMedium.copy(
         fontFamily = FontFamily(Font(R.font.itc_avant_grade_std_bk)),
-        fontWeight = FontWeight.Normal
+        fontWeight = FontWeight.Normal,
     ),
     bodySmall = defaultTypography.bodySmall.copy(
         fontFamily = FontFamily(Font(R.font.itc_avant_grade_std_bk)),

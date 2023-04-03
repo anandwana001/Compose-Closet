@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.akshay.composecatchflicks.R
 import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
 import com.akshay.composecatchflicks.ui.theme.backgroundColor
@@ -22,9 +23,10 @@ fun CatchflicksTopAppBar(
     TopAppBar(
         title = {
             Text(
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.headlineMedium,
                 color = Color.White,
                 text = stringResource(id = R.string.app_name),
+                fontSize = 22.sp,
             )
         },
         colors = TopAppBarDefaults.smallTopAppBarColors(

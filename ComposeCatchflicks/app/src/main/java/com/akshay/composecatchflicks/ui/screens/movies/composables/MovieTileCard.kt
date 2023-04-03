@@ -98,6 +98,7 @@ fun MovieTitle(modifier: Modifier, movieName: String?) {
             maxLines = 2,
             fontSize = 16.sp,
             lineHeight = 22.sp,
+            color = Color.Black,
             style = MaterialTheme.typography.headlineLarge
         )
     }

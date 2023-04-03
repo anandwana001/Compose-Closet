@@ -6,4 +6,7 @@
   <string name="tv">Tv</string>
   <string name="search">Search</string>
   <string name="genre">Genre</string>
+  <string name="popular_movies">Popular Movies</string>
+  <string name="now_playing_movies">Now Playing Movies</string>
+  <string name="upcoming_movies">Upcoming Movies</string>
 </resources>

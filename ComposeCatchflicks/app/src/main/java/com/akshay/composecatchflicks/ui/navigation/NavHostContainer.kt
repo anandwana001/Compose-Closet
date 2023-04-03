@@ -36,7 +36,7 @@ fun NavHostContainer(
                 val viewModel = hiltViewModel<MoviesViewModel>()
                 MoviesScreen(
                     navController = navController,
-                    data = viewModel.movieStateData.collectAsStateWithLifecycle().value
+                    viewModel = viewModel
                 )
             }
             composable("tv") {

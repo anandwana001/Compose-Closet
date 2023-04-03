@@ -30,9 +30,11 @@ class MainActivity : ComponentActivity() {
                     bottomBar = {
                         val navBackStackEntry by navController.currentBackStackEntryAsState()
                         val currentRoute = navBackStackEntry?.destination?.route
-                        if(currentRoute != "detail") {
-                            CatchflicksBottomNavigationBar(navController = navController,
-                            list = ComposeCatchflicksCategory.values().asList())
+                        if (currentRoute != "detail/{movieId}") {
+                            CatchflicksBottomNavigationBar(
+                                navController = navController,
+                                list = ComposeCatchflicksCategory.values().asList()
+                            )
                         }
                     }
                 ) { paddingValues ->

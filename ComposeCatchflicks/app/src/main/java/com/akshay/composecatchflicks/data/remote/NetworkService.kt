@@ -12,34 +12,34 @@ import retrofit2.http.Query
  **/
 interface NetworkService {
 
-    @GET(Endpoints.GENRE)
+    @GET(GENRE)
     suspend fun getGenres(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?
     ): GenreResponse
 
-    @GET(Endpoints.MOVIES_POPULAR)
+    @GET(MOVIES_POPULAR)
     suspend fun getPopularMovies(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?,
         @Query("page") page: Int?
     ): PopularMoviesResponse
 
-    @GET(Endpoints.MOVIES_NOW_PLAYING)
+    @GET(MOVIES_NOW_PLAYING)
     suspend fun getNowPlayingMovies(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?,
         @Query("page") page: Int?
     ): NowPlayingMoviesResponse
 
-    @GET(Endpoints.MOVIES_UPCOMING)
+    @GET(MOVIES_UPCOMING)
     suspend fun getUpcomingMovies(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?,
         @Query("page") page: Int?
     ): UpcomingMoviesResponse
 
-    @GET(Endpoints.MOVIES_SEARCH)
+    @GET(MOVIES_SEARCH)
     suspend fun searchMovies(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String?,
@@ -47,7 +47,7 @@ interface NetworkService {
         @Query("page") page: Int?
     ): SearchMoviesResponse
 
-    @GET(Endpoints.MOVIE_DETAILS)
+    @GET(MOVIE_DETAILS)
     suspend fun getMovieDetails(
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,

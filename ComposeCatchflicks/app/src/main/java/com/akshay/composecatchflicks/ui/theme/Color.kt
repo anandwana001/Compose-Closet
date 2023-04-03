@@ -14,5 +14,3 @@ val backgroundColor = Color(0XFF595a5c)
 val screenBackgroundColor = Color(0XFFD3D3D3)
 val UnSelectedTextItemColor = Color(0X88FFFFFF)
 val textColor = Color(0xFFffbc03)
-
-val bottomShadow = Color(0XFF666666)
