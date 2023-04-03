@@ -19,10 +19,10 @@ import androidx.compose.ui.unit.dp
 fun DisplayScreen() {
     Column {
         ShowTitle("LazyVerticalStaggeredGrid")
-        LazyVerticalStaggeredGridView(modifier = Modifier.weight(0.5f))
+        LazyVerticalStaggeredGridView(modifier = Modifier.weight(0.5f), listOfItems)
         Spacer(modifier = Modifier.height(10.dp))
         ShowTitle("LazyHorizontalStaggeredGrid")
-        LazyHorizontalStaggeredGridView(modifier = Modifier.weight(0.5f))
+        LazyHorizontalStaggeredGridView(modifier = Modifier.weight(0.5f), listOfItems)
     }
 }
 
@@ -33,3 +33,33 @@ private fun ShowTitle(title: String) {
         text = title
     )
 }
+
+private const val SINGLE_LINE_ITEM = "A single line to test."
+private const val MULTIPLE_LINE_ITEM = "This is a multi-line string to test on the item for staggering."
+private val listOfItems = listOf<String>(
+    MULTIPLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    SINGLE_LINE_ITEM,
+    MULTIPLE_LINE_ITEM,
+)
