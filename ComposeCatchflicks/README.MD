@@ -7,8 +7,8 @@ This is a Compose version of my earlier [Catchflicks](https://github.com/anandwa
 
 ## Screenshot 📱
 <p>
-<img src="/Screenshots/ComposeCatchflicksHome.png" width="220" height="450"/> 
-<img src="/Screenshots/ComposeCatchflicksHome2.png" width="220" height="450"/> 
+<img src="/Screenshots/ComposeCatchflicksHome.jpeg" width="220" height="450"/>
+<img src="/Screenshots/ComposeCatchflicksHome2.jpeg" width="220" height="450"/>
 </p>
 
 ## Architecture
