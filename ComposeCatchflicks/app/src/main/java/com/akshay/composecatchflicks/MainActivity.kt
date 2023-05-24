@@ -33,7 +33,6 @@ class MainActivity : ComponentActivity() {
                         if (currentRoute != "detail/{movieId}") {
                             CatchflicksBottomNavigationBar(
                                 navController = navController,
-                                list = ComposeCatchflicksCategory.values().asList()
                             )
                         }
                     }
