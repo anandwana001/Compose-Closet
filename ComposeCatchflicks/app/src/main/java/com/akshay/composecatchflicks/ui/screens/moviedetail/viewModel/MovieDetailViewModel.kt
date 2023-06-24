@@ -30,7 +30,7 @@ class MovieDetailViewModel @Inject constructor(
         getMovieDetail()
     }
 
-    fun getMovieDetail() {
+    private fun getMovieDetail() {
         viewModelScope.launch {
             _movieStateData.value = moviesRepository.getMovieDetails(movieId)
         }
