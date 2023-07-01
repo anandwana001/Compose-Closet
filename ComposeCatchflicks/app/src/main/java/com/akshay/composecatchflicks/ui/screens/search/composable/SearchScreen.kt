@@ -1,19 +1,25 @@
 package com.akshay.composecatchflicks.ui.screens.search.composable
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Clear
 import androidx.compose.material.icons.rounded.Search
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -32,6 +38,7 @@ import com.akshay.composecatchflicks.domain.model.Genres
 import com.akshay.composecatchflicks.ui.screens.search.data.SearchEvent
 import com.akshay.composecatchflicks.ui.screens.search.data.SearchState
 import com.akshay.composecatchflicks.ui.theme.Purple40
+import com.akshay.composecatchflicks.ui.theme.backgroundColor
 import com.akshay.composecatchflicks.ui.theme.screenBackgroundColor
 
 /**
@@ -50,6 +57,7 @@ fun SearchScreen(
             .background(screenBackgroundColor)
     ) {
         SearchField(uiState = searchState, searchEvent = searchEvent)
+        SearchResultUi(uiState = searchState)
         GenreList(list = searchState.genreResult, colors = searchState.listOfColors)
     }
 }
@@ -67,13 +75,23 @@ private fun SearchField(
             searchEvent(SearchEvent.SearchQuery(it))
         },
         modifier = modifier
-            .padding(8.dp)
+            .padding(start = 8.dp, end = 8.dp, top = 8.dp)
             .fillMaxWidth(),
         trailingIcon = {
-            Icon(
-                Icons.Rounded.Search,
-                contentDescription = ""
-            )
+            if (uiState.searchResult.isNotEmpty()) {
+                Icon(
+                    Icons.Rounded.Clear,
+                    contentDescription = "",
+                    modifier = Modifier.clickable {
+                        searchEvent(SearchEvent.SearchClear)
+                    }
+                )
+            } else {
+                Icon(
+                    Icons.Rounded.Search,
+                    contentDescription = ""
+                )
+            }
         },
         placeholder = {
             Text(text = "look for movies here", color = screenBackgroundColor)
@@ -87,8 +105,38 @@ private fun SearchField(
             unfocusedTrailingIconColor = screenBackgroundColor,
             focusedTrailingIconColor = Purple40,
         ),
-        shape = RoundedCornerShape(8.dp)
+        shape = if (uiState.searchResult.isNotEmpty()) {
+            RoundedCornerShape(topEnd = 8.dp, topStart = 8.dp)
+        } else {
+            RoundedCornerShape(8.dp)
+        }
     )
+}
+
+@Composable
+private fun SearchResultUi(
+    modifier: Modifier = Modifier,
+    uiState: SearchState,
+) {
+    if (uiState.searchResult.isNotEmpty()) {
+        LazyColumn(
+            modifier = modifier
+                .height(200.dp)
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp)
+                .background(
+                    color = Color.White,
+                    shape = RoundedCornerShape(bottomEnd = 8.dp, bottomStart = 8.dp)
+                )
+        ) {
+            itemsIndexed(uiState.searchResult, key = { index, item -> index }) { index, item ->
+                Column(modifier = Modifier.padding(vertical = 4.dp, horizontal = 4.dp)) {
+                    Text(text = item)
+                    Divider(color = backgroundColor)
+                }
+            }
+        }
+    }
 }
 
 @Composable

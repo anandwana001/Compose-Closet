@@ -3,6 +3,7 @@ package com.akshay.composecatchflicks.ui.screens.search.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akshay.composecatchflicks.domain.repository.GenreRepository
+import com.akshay.composecatchflicks.domain.repository.SearchRepository
 import com.akshay.composecatchflicks.ui.screens.search.data.SearchEvent
 import com.akshay.composecatchflicks.ui.screens.search.data.SearchState
 import com.akshay.composecatchflicks.ui.theme.Pink40
@@ -11,8 +12,8 @@ import com.akshay.composecatchflicks.ui.theme.Purple40
 import com.akshay.composecatchflicks.ui.theme.Purple80
 import com.akshay.composecatchflicks.ui.theme.PurpleGrey40
 import com.akshay.composecatchflicks.ui.theme.PurpleGrey80
-import com.akshay.composecatchflicks.ui.theme.textColor
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -21,6 +22,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -29,7 +31,8 @@ import javax.inject.Inject
  **/
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val genreRepository: GenreRepository
+    private val genreRepository: GenreRepository,
+    private val searchRepository: SearchRepository
 ) : ViewModel() {
 
     private val _searchStateData = MutableStateFlow(SearchState())
@@ -50,12 +53,28 @@ class SearchViewModel @Inject constructor(
     private fun listenEvent(event: SearchEvent) {
         when (event) {
             is SearchEvent.SearchQuery -> {
-                _searchStateData.update {
-                    it.copy(searchTextField = event.query)
+                viewModelScope.launch(Dispatchers.IO) {
+                    _searchStateData.update {
+                        it.copy(searchTextField = event.query)
+                    }
+                    val result = searchRepository.getSearchResult(event.query)
+                    withContext(Dispatchers.Main) {
+                        _searchStateData.update {
+                            it.copy(searchResult = result)
+                        }
+                    }
                 }
             }
             is SearchEvent.OpenGenre -> {
 
+            }
+            is SearchEvent.SearchClear -> {
+                _searchStateData.update {
+                    it.copy(
+                        searchResult = emptyList(),
+                        searchTextField = ""
+                    )
+                }
             }
         }
     }

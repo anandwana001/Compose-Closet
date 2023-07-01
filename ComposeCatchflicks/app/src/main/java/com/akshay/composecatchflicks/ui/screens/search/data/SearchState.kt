@@ -11,4 +11,5 @@ data class SearchState(
     val genreResult: List<Genres> = emptyList(),
     val searchTextField: String = "",
     val listOfColors: List<Color> = emptyList(),
+    val searchResult: List<String> = emptyList(),
 )
