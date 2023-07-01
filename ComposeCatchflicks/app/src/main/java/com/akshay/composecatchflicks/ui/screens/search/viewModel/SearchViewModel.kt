@@ -53,15 +53,12 @@ class SearchViewModel @Inject constructor(
     private fun listenEvent(event: SearchEvent) {
         when (event) {
             is SearchEvent.SearchQuery -> {
-                viewModelScope.launch(Dispatchers.IO) {
+                viewModelScope.launch {
                     _searchStateData.update {
                         it.copy(searchTextField = event.query)
                     }
-                    val result = searchRepository.getSearchResult(event.query)
-                    withContext(Dispatchers.Main) {
-                        _searchStateData.update {
-                            it.copy(searchResult = result)
-                        }
+                    _searchStateData.update {
+                        it.copy(searchResult = searchRepository.getSearchResult(event.query))
                     }
                 }
             }
