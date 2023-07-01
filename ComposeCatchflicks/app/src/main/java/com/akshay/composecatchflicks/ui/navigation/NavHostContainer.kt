@@ -3,6 +3,8 @@ package com.akshay.composecatchflicks.ui.navigation
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -16,8 +18,10 @@ import com.akshay.composecatchflicks.ui.screens.moviedetail.compose.MovieDetailS
 import com.akshay.composecatchflicks.ui.screens.moviedetail.viewModel.MovieDetailViewModel
 import com.akshay.composecatchflicks.ui.screens.movies.composables.MoviesScreen
 import com.akshay.composecatchflicks.ui.screens.movies.viewmodel.MoviesViewModel
-import com.akshay.composecatchflicks.ui.screens.search.SearchScreen
-import com.akshay.composecatchflicks.ui.screens.tv.TvScreen
+import com.akshay.composecatchflicks.ui.screens.search.composable.SearchScreen
+import com.akshay.composecatchflicks.ui.screens.search.viewModel.SearchViewModel
+import com.akshay.composecatchflicks.ui.screens.tv.composable.TvScreen
+import kotlinx.coroutines.launch
 
 /**
  * Created by anandwana001 on
@@ -29,6 +33,7 @@ fun NavHostContainer(
     paddingValues: PaddingValues,
 ) {
     val viewModel = hiltViewModel<MoviesViewModel>()
+    val searchViewModel = hiltViewModel<SearchViewModel>()
     NavHost(
         navController = navController,
         startDestination = ComposeCatchflicksCategory.MOVIE.route,
@@ -52,7 +57,13 @@ fun NavHostContainer(
                 TvScreen()
             }
             composable("search") {
-                SearchScreen()
+                val coroutineScope = rememberCoroutineScope()
+                val searchState by searchViewModel.searchStateData.collectAsStateWithLifecycle()
+                SearchScreen(searchState = searchState) {
+                    coroutineScope.launch {
+                        searchViewModel.emitEvent(it)
+                    }
+                }
             }
             composable(
                 "detail/{movieId}",

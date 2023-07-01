@@ -2,13 +2,13 @@ package com.akshay.composecatchflicks.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val Purple80 = Color(0xAB845EC2)
+val PurpleGrey80 = Color(0xABD65DB1)
+val Pink80 = Color(0xABFF6F91)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val Purple40 = Color(0xABFF9671)
+val PurpleGrey40 = Color(0xABFFC75F)
+val Pink40 = Color(0xABF9F871)
 
 val backgroundColor = Color(0XFF595a5c)
 val screenBackgroundColor = Color(0XFFD3D3D3)

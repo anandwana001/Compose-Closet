@@ -1,4 +1,4 @@
-package com.akshay.composecatchflicks.domain
+package com.akshay.composecatchflicks.domain.repository
 
 import com.akshay.composecatchflicks.data.remote.NetworkService
 import com.akshay.composecatchflicks.domain.model.Genres

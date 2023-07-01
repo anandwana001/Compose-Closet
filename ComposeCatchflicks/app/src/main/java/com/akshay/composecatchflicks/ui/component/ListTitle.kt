@@ -6,6 +6,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -19,12 +22,15 @@ import androidx.compose.ui.unit.sp
  **/
 @Composable
 fun ListTitle(@StringRes titleId: Int) {
+    val titleRemember by remember {
+        mutableStateOf(titleId)
+    }
     Text(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
         style = MaterialTheme.typography.headlineSmall,
-        text = stringResource(id = titleId),
+        text = stringResource(id = titleRemember),
         textDecoration = TextDecoration.Underline,
         maxLines = 1,
         color = Color.Black,

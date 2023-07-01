@@ -1,4 +1,4 @@
-package com.akshay.composecatchflicks.ui.screens.search
+package com.akshay.composecatchflicks.ui.screens.tv.composable
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -11,14 +11,6 @@ import com.akshay.composecatchflicks.ui.theme.ComposeCatchflicksTheme
  * 08, November, 2022
  **/
 @Composable
-fun SearchScreen(modifier: Modifier = Modifier) {
-    Text(text = "Search")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun SearchScreenPreview() {
-    ComposeCatchflicksTheme() {
-        SearchScreen()
-    }
+fun TvScreen(modifier: Modifier = Modifier) {
+    Text(text = "TV")
 }
