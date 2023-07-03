@@ -9,10 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.akshay.composecatchflicks.domain.model.Movie
-import com.akshay.composecatchflicks.ui.component.MovieDescription
-import com.akshay.composecatchflicks.ui.component.MovieRating
-import com.akshay.composecatchflicks.ui.component.MovieThumbnailCard
-import com.akshay.composecatchflicks.ui.component.MovieTitle
 
 /**
  * Created by anandwana001 on
@@ -26,13 +22,13 @@ fun NowPlayingCard(
     Box(
         modifier = modifier.padding(horizontal = 16.dp)
     ) {
-        MovieTileDetail(modifier, movie.title, movie.overview, movie.voteAverage)
+        NowPlayingMovieTileDetail(modifier, movie.title, movie.overview, movie.voteAverage)
         MovieThumbnailCard(modifier, movie.posterPath)
     }
 }
 
 @Composable
-fun MovieTileDetail(
+private fun NowPlayingMovieTileDetail(
     modifier: Modifier,
     movieName: String?,
     movieDes: String?,

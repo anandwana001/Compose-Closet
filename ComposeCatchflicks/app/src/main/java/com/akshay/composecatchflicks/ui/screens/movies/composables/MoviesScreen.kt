@@ -23,7 +23,6 @@ import androidx.paging.compose.LazyPagingItems
 import com.akshay.composecatchflicks.R
 import com.akshay.composecatchflicks.domain.model.Movie
 import com.akshay.composecatchflicks.ui.component.ListTitle
-import com.akshay.composecatchflicks.ui.component.MovieTileCard
 import com.akshay.composecatchflicks.ui.theme.Purple40
 import com.akshay.composecatchflicks.ui.theme.screenBackgroundColor
 
