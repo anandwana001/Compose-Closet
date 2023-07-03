@@ -1,13 +1,10 @@
 package com.akshay.composecatchflicks.domain.repository
 
 import com.akshay.composecatchflicks.data.remote.NetworkService
-import com.akshay.composecatchflicks.di.IoDispatcher
 import com.akshay.composecatchflicks.domain.model.Genres
 import com.akshay.composecatchflicks.domain.model.Movie
 import com.akshay.composecatchflicks.domain.model.MovieDetail
 import com.akshay.composecatchflicks.util.createPager
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 /**
@@ -15,8 +12,7 @@ import javax.inject.Inject
  * 15, November, 2022
  **/
 class MoviesRepository @Inject constructor(
-    private val networkService: NetworkService,
-    @IoDispatcher private val dispatchers: CoroutineDispatcher = Dispatchers.IO
+    private val networkService: NetworkService
 ) {
 
     fun getPopularMovies(
