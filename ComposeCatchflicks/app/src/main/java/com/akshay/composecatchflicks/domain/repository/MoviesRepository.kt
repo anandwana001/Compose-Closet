@@ -8,7 +8,6 @@ import com.akshay.composecatchflicks.domain.model.MovieDetail
 import com.akshay.composecatchflicks.util.createPager
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -23,93 +22,85 @@ class MoviesRepository @Inject constructor(
     fun getPopularMovies(
         language: String,
     ) = createPager { page ->
-        withContext(dispatchers) {
-            val data = networkService.getPopularMovies(
-                language = language,
-                page = page
-            )
-            Pair(
-                first = data.results?.map {
-                    Movie(
-                        id = it.id,
-                        title = it.title,
-                        overview = it.overview,
-                        voteAverage = it.vote_average,
-                        posterPath = it.poster_path,
-                        backdropPath = it.backdrop_path
-                    )
-                } ?: emptyList(),
-                second = data.total_pages ?: 0
-            )
-        }
+        val data = networkService.getPopularMovies(
+            language = language,
+            page = page
+        )
+        Pair(
+            first = data.results?.map {
+                Movie(
+                    id = it.id,
+                    title = it.title,
+                    overview = it.overview,
+                    voteAverage = it.vote_average,
+                    posterPath = it.poster_path,
+                    backdropPath = it.backdrop_path
+                )
+            } ?: emptyList(),
+            second = data.total_pages ?: 0
+        )
     }.flow
 
     fun getNowPlayingMovies(
         language: String,
     ) = createPager { page ->
-        withContext(dispatchers) {
-            val data = networkService.getNowPlayingMovies(
-                language = language,
-                page = page
-            )
-            Pair(
-                first = data.results?.map {
-                    Movie(
-                        id = it.id,
-                        title = it.title,
-                        overview = it.overview,
-                        voteAverage = it.vote_average,
-                        posterPath = it.poster_path,
-                        backdropPath = it.backdrop_path
-                    )
-                } ?: emptyList(),
-                second = data.total_pages ?: 0
-            )
-        }
+        val data = networkService.getNowPlayingMovies(
+            language = language,
+            page = page
+        )
+        Pair(
+            first = data.results?.map {
+                Movie(
+                    id = it.id,
+                    title = it.title,
+                    overview = it.overview,
+                    voteAverage = it.vote_average,
+                    posterPath = it.poster_path,
+                    backdropPath = it.backdrop_path
+                )
+            } ?: emptyList(),
+            second = data.total_pages ?: 0
+        )
     }.flow
 
     fun getUpcomingMovies(
         language: String,
     ) = createPager { page ->
-        withContext(dispatchers) {
-            val data = networkService.getUpcomingMovies(
-                language = language,
-                page = page
-            )
-            Pair(
-                first = data.results?.map {
-                    Movie(
-                        id = it.id,
-                        title = it.title,
-                        overview = it.overview,
-                        voteAverage = it.vote_average,
-                        posterPath = it.poster_path,
-                        backdropPath = it.backdrop_path
-                    )
-                } ?: emptyList(),
-                second = data.total_pages ?: 0
-            )
-        }
+        val data = networkService.getUpcomingMovies(
+            language = language,
+            page = page
+        )
+        Pair(
+            first = data.results?.map {
+                Movie(
+                    id = it.id,
+                    title = it.title,
+                    overview = it.overview,
+                    voteAverage = it.vote_average,
+                    posterPath = it.poster_path,
+                    backdropPath = it.backdrop_path
+                )
+            } ?: emptyList(),
+            second = data.total_pages ?: 0
+        )
     }.flow
 
     suspend fun getMovieDetails(movieId: Int): MovieDetail {
-        return withContext(dispatchers) {
-            val data = networkService.getMovieDetails(movieId = movieId)
-            MovieDetail(
-                id = data.id,
-                title = data.title,
-                overview = data.overview,
-                voteAverage = data.vote_average,
-                posterPath = data.poster_path,
-                backdropPath = data.backdrop_path,
-                genres = data.genres?.filter {
-                    it.name != null && it.id != null
-                }?.map {
-                    Genres(it.id, it.name)
-                } ?: run {
-                    emptyList()
-                }
-            )
-        }
+        val data = networkService.getMovieDetails(movieId = movieId)
+        return MovieDetail(
+            id = data.id,
+            title = data.title,
+            overview = data.overview,
+            voteAverage = data.vote_average,
+            posterPath = data.poster_path,
+            backdropPath = data.backdrop_path,
+            genres = data.genres?.filter {
+                it.name != null && it.id != null
+            }?.map {
+                Genres(it.id, it.name)
+            } ?: run {
+                emptyList()
+            }
+        )
     }
 }
